@@ -178,7 +178,8 @@ module GraphQL
 
       rules = GraphQL::StaticValidation::ALL_RULES - [
         GraphQL::StaticValidation::FragmentsAreUsed,
-        GraphQL::StaticValidation::FieldsHaveAppropriateSelections
+        GraphQL::StaticValidation::FieldsHaveAppropriateSelections,
+        GraphQL::StaticValidation::FieldsAreDefinedOnType
       ]
       validator = GraphQL::StaticValidation::Validator.new(schema: self.schema, rules: rules)
       query = GraphQL::Query.new(self.schema, document: document_dependencies)
